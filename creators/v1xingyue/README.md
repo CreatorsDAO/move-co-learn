@@ -20,6 +20,7 @@ Sui 账号地址: 0xc4d17bdea567268b50cb24c783ccafc678d468a0cfce0afb84313b163cb4
 
 - 对象权限相关
 
+store 能力标记的是该资源能否做为其他对象的属性。如果一个struct 会作为另一个struct 的属性，那么必须有store 能力。
 如果限制一个资源不可以转移，那么只给该资源 key 属性即可。
 
 ```rust
