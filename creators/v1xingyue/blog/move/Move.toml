@@ -1,0 +1,11 @@
+[package]
+name = "blog"
+version = "0.0.3"
+published-at = "0x2daeaed880dc1734c013d8f0ae30a6b63aff918c8f7fdef1d1b307dbfe7d44c1"
+
+[dependencies]
+Sui = {local="../../../../../sui/crates/sui-framework/packages/sui-framework"}
+
+[addresses]
+blog =  "0x0"
+sui =  "0x2"
