@@ -1,22 +1,21 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import { JsonRpcProvider, devnetConnection, mainnetConnection } from '@mysten/sui.js';
-import {NETWORK,SUI_PACKAGE} from "../../config/constants" ;
+import {NETWORK,SUI_PACKAGE} from "../../../config/constants" ;
 
 
 export default function AddressIndex (){
     const router = useRouter();
-    const {address} = router.query;
+    const {address,pageID} = router.query;
 
     let connection = devnetConnection;
     if(NETWORK === "mainnet"){
         connection = mainnetConnection;
     }
     const provider = new JsonRpcProvider(connection);
-    const [pages,setPages] = useState<Array<{
+    const [posts,setPosts] = useState<Array<{
         id:string,
-        name:string,
-        display:string,
+        title:string,
         createTime:Number
     }>>([]);
 
@@ -26,7 +25,7 @@ export default function AddressIndex (){
                 const resp = await provider.getOwnedObjects({
                     owner: address as string,
                     filter:{
-                        StructType:`${SUI_PACKAGE}::page::Page`
+                        StructType:`${SUI_PACKAGE}::post::Post`
                     },
                     options:{
                         showType:true,
@@ -35,17 +34,18 @@ export default function AddressIndex (){
                     }
                 });
                 if (resp.data.length > 0) {
-                    const pages = resp.data.map((item: any) => {
+                    const posts = resp.data.filter((item:any)=>{
+                        return item.data.content.fields.page_id === pageID;
+                    }).map((item: any) => {
                       console.log(item);
                       const fields = item.data.content.fields as any;
                       return {
                         id: item.data.objectId,
-                        name:fields.name,
-                        display:fields.display,
+                        title:fields.title,
                         createTime:fields.create_time
                       }
                     })
-                    setPages(pages)
+                    setPosts(posts)
                   }
             }
             
@@ -57,15 +57,15 @@ export default function AddressIndex (){
     // get other page list
    return (
     <>
-        <h2 className="font-bold"> {address} --- blog on sui !!!  </h2>
+        <h2 className="font-bold"> account:  {address}  </h2>
+        <h2 className="font-bold"> page_id:  {pageID}  </h2>
         {
-            pages.length > 0 ?
-                 pages.map((item: any) => { return  (
+            posts.length > 0 ?
+                posts.map((item: any) => { return  (
                     <div className="card mt-3 shadow-xl" key={item.id}>
                         <div className="card-body">
-                            <h2 className="card-title">Page {item.name}</h2>
-                            <p>{item.display} </p>
-                            <p className="text-info"><a href={`/post/${address}/${item.id}`}> Post List </a> </p>
+                            <h2 className="card-title">Post {item.title}</h2>
+                            <p className="text-info"><a href={`/detail/${item.id}`}> Post Detail </a> </p>
                         </div>
                     </div>
                  ) })
