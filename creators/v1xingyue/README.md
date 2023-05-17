@@ -23,11 +23,47 @@ Sui 账号地址: 0xc4d17bdea567268b50cb24c783ccafc678d468a0cfce0afb84313b163cb4
 store 能力标记的是该资源能否做为其他对象的属性。如果一个struct 会作为另一个struct 的属性，那么必须有store 能力。
 如果限制一个资源不可以转移，那么只给该资源 key 属性即可。
 
+同时如果一个 object 具有 key store 属性，那么他将可以作为公共资产，放大转移的权限。
+即 允许除自身以外的第三方(钱包,sui cli等) 转移对象所有权
+
 ```rust
+// AdminCap 将只允许自身module 对其进行转移操作
 struct AdminCap has key { id: UID }
+
+// 将允许自身module和其他第三方对其进行转移操作
+struct TransferCap has key,store { id: UID }
+
 ```
 
-- 
+- dapp 开发相关
+
+获取rpc 交互对象
+
+```typescript
+
+let connection = devnetConnection;
+if(NETWORK === "mainnet"){
+    connection = mainnetConnection;
+}
+const provider = new JsonRpcProvider(connection);
+```
+
+获取链上数据 getOwnedObjects
+其中 filter 参数可以有多种变化,具体参看 getOwnedObjects 方法介绍
+
+```typescript
+const resp = await provider.getOwnedObjects({
+    owner: address as string,
+    filter:{
+        StructType:`${SUI_PACKAGE}::post::Post`
+    },
+    options:{
+        showType:true,
+        showContent:true,
+        showDisplay:true,
+    }
+});
+```
 
 - 学习move基本语法
 
