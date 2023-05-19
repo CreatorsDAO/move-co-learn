@@ -35,6 +35,13 @@ struct TransferCap has key,store { id: UID }
 
 ```
 
+- 关于 object wrapping 
+
+将一个 object 包装进一个object 内部。 包装完成后，将不在属于任何一个地址。如果需要使用该对象，需要打开盒子。
+打开盒子的操作，可以添加若干限制，比如 地址限制，时间限制等。
+
+具体可参看: [allow_mint.move](./playground/sources/allow_mint.move)
+
 - dapp 开发相关
 
 获取rpc 交互对象
