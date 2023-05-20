@@ -2,7 +2,7 @@
 
 echo " call.sh <module_name> <fun_name> <arg1,arg2,arg3> " 
 
-package_addr="0x0b85e50fa01ef4f412cf9233cd3a54a611a87dff12e7cca853ac74a66fef65b6"
+package_addr=$(jq '.objectChanges[] | select(.type == "published")' publish.json | jq -r ".packageId")
 module_name="$1"
 fun_name="$2"
 

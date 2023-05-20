@@ -5,7 +5,8 @@ module playground::allow_mint {
     use sui::object::{Self, UID};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
-    
+    use playground::fire_event::{do_fire};
+
     struct Item has store,key {
         id:UID,
         value:u64
@@ -28,7 +29,8 @@ module playground::allow_mint {
                 item,
                 allow_address
             },tx_context::sender(ctx)
-        )
+        );
+        do_fire(b"box created",ctx);
     }
 
     public entry fun open_box(box:Box,ctx:&mut TxContext){
