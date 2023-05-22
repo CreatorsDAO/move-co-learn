@@ -20,6 +20,7 @@ Sui 账号地址: 0xe0a15598b6b7b9a5170149288abac392223c1f332f58942e7b680d5f9cb1
   - 重读了官方文档[programming-with-objects](https://docs.sui.io/build/programming-with-objects)部分
   - 参与了uvd老师的直播课
   - 着手【组队项目】MoveFlow SDK on Sui
+  - 参与了uvd老师的Office Hour
 
 ## 学习成果
 
@@ -29,6 +30,8 @@ Sui 账号地址: 0xe0a15598b6b7b9a5170149288abac392223c1f332f58942e7b680d5f9cb1
 * 2023.05.15 ~ 2023.05.21
     - 初步理解了对象的三种所有权：私有、共享可变、共享不可变
     - 进一步理解Sui中数据类型的四种能力：Copy, Drop, Key, Store
+    - 深入了解了Sui Move的三种函数参数传递方式(引用、可变饮用、值)的差别
+    - 深入了解了One Time Witness和Hot Potato设计模式的原理和用途
 
 ## Idea想法
 
