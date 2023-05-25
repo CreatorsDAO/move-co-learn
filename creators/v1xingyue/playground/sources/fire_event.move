@@ -25,9 +25,11 @@ module playground::fire_event {
         });
     }
 
+
     #[test]
     public fun event_test(){
         let addr1 = @0xA;
+        let addr_eth = @0x427fb105d12A7879F784079B2612F881318839a8;
         let scenario_val = test_scenario::begin(addr1);
         let scenario = &mut scenario_val;
         {
