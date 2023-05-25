@@ -2,4 +2,6 @@
 sui.log.*
 Move.lock
 playground/build
+hello_world/build
+mycoin/build
 playground/publish.json

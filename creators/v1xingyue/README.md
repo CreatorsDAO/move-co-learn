@@ -35,12 +35,44 @@ struct TransferCap has key,store { id: UID }
 
 ```
 
+- 关于对象权限传递 value , reference , mut reference 三种的区别
+
+对于数据的操作权限是主机变化的。 
+
+1. & object_type 对象只读
+2. & mut object_type 可以修改对象
+3. object_type 可以读取对象，修改对象，还可以 解构对象 
+
 - 关于 object wrapping 
 
 将一个 object 包装进一个object 内部。 包装完成后，将不在属于任何一个地址。如果需要使用该对象，需要打开盒子。
 打开盒子的操作，可以添加若干限制，比如 地址限制，时间限制等。
 
 具体可参看: [allow_mint.move](./playground/sources/allow_mint.move)
+
+- 设计模式
+
+1. cap 模式
+
+用一个对象标记一个地址是否拥有某种操作的能力。
+
+2. hot potato 模式
+
+传递一个没有任何能力的 hot potato. 在处理过程中，必须处理掉(解构)。同时内部用来标记各种处理状态
+
+(闪电贷) 在同一个合约操作中，必须同时完成 贷款 和 还款操作。 贷款完成后，生成一个 receipt 作为 hot potato.
+然后，必须回调 repay 模式来解构掉。
+
+这个模式有个前提，所有的 object 属性 都是private 属性。离开定义的module 就不能使用了。所以 ，传递的hot potato 必须经过定义的module 来处理，这个处理往往都是有代价的 (消耗coin).
+
+3. witness 模式
+
+witness 必须有drop 能力。进行某个操作，必须消耗一个 witness 对象。
+
+4. id 模式
+
+数据作为一个id 应用，将数据分离。
+
 
 - dapp 开发相关
 
@@ -94,6 +126,8 @@ curl -d '
     }
 ' -H 'Content-Type: application/json' https://fullnode.devnet.sui.io:443
 ```
+
+
 
 ## 学习成果
 
