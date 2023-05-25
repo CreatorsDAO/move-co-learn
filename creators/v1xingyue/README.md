@@ -127,7 +127,16 @@ curl -d '
 ' -H 'Content-Type: application/json' https://fullnode.devnet.sui.io:443
 ```
 
+- 关于 FT 同质化代币
 
+1. 调用 coin::create_currency 生成两个对象 ， 一个 cap ，一个 metadata。
+   metadata 的处理一般会 share 任何人可以更改，或者 freeze 固定到链上
+2. 谨记 : cap 一定不能share，否则你的 coin将被任何人，任何地址mint。
+3. cap 可以转为 supply, 作为一个store对象存储到任何object 内部。比如 封装到自己module 内部的MySupply。mint的时候传递。谨记: 未封装的 supply 同样不能share.
+4. 关于FT 代币的上限，默认创建的代币mint 没有上限。或者说 上限是 u64 的最大值。
+5. 如果需要限制一个FT 的 mint 和上限，则需要封账supply 在自己的mint 的时候完成限制调用。
+
+综合 cap 模式 实现了一个 限制mint 的功能。 [limitcoin.move](./limitcoin)
 
 ## 学习成果
 
