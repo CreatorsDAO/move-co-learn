@@ -147,6 +147,10 @@ curl -d '
 
 具体参看: [mynft.move](./playground/sources/mynft.move)
 
+- 基本数据类型
+
+1. vector 操作相关  vector::emtpy, vector::index_of, vector::push_back, vector::pop_back  [vector_test.move](./dataplayer/sources/vector_test.move) 
+
 ## 学习成果
 
 - [sui开发脚手架](https://github.com/v1xingyue/scaffold-sui)

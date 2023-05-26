@@ -1,8 +1,5 @@
 .DS_Store
 sui.log.*
 Move.lock
-playground/build
-hello_world/build
-mycoin/build
-limitcoin/build
-playground/publish.json
+*/build
+*/publish.json
