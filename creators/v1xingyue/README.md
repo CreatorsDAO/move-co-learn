@@ -138,6 +138,15 @@ curl -d '
 
 综合 cap 模式 实现了一个 限制mint 的功能。 [limitcoin.move](./limitcoin)
 
+- 关于NFT 非同质化代币
+
+1. 在sui里任何object 都是广义的 NFT 
+2. 为定义NFT 的显示特性 ， sui 里定义的 display 对象。该对象定义了 各个字段的map
+3. 其中 name, image_url 为 必选项 ， image_url 可以是 base64格式的图片字符串
+4. 定义 display 需要 publisher, 获取 publisher 需要 OTW 对象，故 一个module内部的 display 对象只能初始化一次。 在 init 中可以定义多个display对象。
+
+具体参看: [mynft.move](./playground/sources/mynft.move)
+
 ## 学习成果
 
 - [sui开发脚手架](https://github.com/v1xingyue/scaffold-sui)
