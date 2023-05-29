@@ -1,0 +1,23 @@
+2023-05-15T00:56:26.664226Z  WARN sui_sdk::wallet_context: Client/Server api version mismatch, client api version : 1.0.0, server api version : 1.1.0
+2023-05-15T00:56:26.963910Z  INFO sui::client_commands:                              Object ID                              |  Gas Value 
+2023-05-15T00:56:26.963936Z  INFO sui::client_commands: ----------------------------------------------------------------------------------
+2023-05-15T00:56:26.963938Z  INFO sui::client_commands:  0x9993d48e1f0e551a9dfc7b7c488fe00dd743a0c5aa6ee3ce650576a60c897f0f |  972938240 
+2023-05-15T00:56:35.824493Z  WARN sui_sdk::wallet_context: Client/Server api version mismatch, client api version : 1.0.0, server api version : 1.1.0
+2023-05-15T00:56:36.074871Z  INFO sui::client_commands: [
+2023-05-15T00:56:36.074884Z  INFO sui::client_commands:   {
+2023-05-15T00:56:36.074885Z  INFO sui::client_commands:     "id": {
+2023-05-15T00:56:36.074887Z  INFO sui::client_commands:       "id": "0x9993d48e1f0e551a9dfc7b7c488fe00dd743a0c5aa6ee3ce650576a60c897f0f"
+2023-05-15T00:56:36.074888Z  INFO sui::client_commands:     },
+2023-05-15T00:56:36.074889Z  INFO sui::client_commands:     "balance": {
+2023-05-15T00:56:36.074890Z  INFO sui::client_commands:       "value": 972938240
+2023-05-15T00:56:36.074892Z  INFO sui::client_commands:     }
+2023-05-15T00:56:36.074893Z  INFO sui::client_commands:   }
+2023-05-15T00:56:36.074895Z  INFO sui::client_commands: ]
+2023-05-15T00:56:38.333154Z  WARN sui_sdk::wallet_context: Client/Server api version mismatch, client api version : 1.0.0, server api version : 1.1.0
+2023-05-15T01:21:57.954429Z  INFO sui::client_commands: Showing 2 results.
+2023-05-15T01:21:57.954465Z  INFO sui::client_commands: 0xa220bb1bff5b7b46bf3afd9c4bde6f9d6fc05633fe6b0e3f7a4168242593f657 <=
+2023-05-15T01:21:57.954469Z  INFO sui::client_commands: 0xa6485d9dc95c4981274c3a3ebe162ee6d0695a07cab036e5b245a2061e8e2c4c
+2023-05-15T01:22:33.836731Z  WARN sui_sdk::wallet_context: Client/Server api version mismatch, client api version : 1.0.0, server api version : 1.1.0
+2023-05-15T01:22:34.109095Z  INFO sui::client_commands:                              Object ID                              |  Gas Value 
+2023-05-15T01:22:34.109134Z  INFO sui::client_commands: ----------------------------------------------------------------------------------
+2023-05-15T01:22:34.109141Z  INFO sui::client_commands:  0x740132b0dad75bfb5bfe3ca2b04091fdcb8c590eca651bb9c63622be56df254f | 1000000000 
