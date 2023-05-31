@@ -147,9 +147,28 @@ curl -d '
 
 具体参看: [mynft.move](./playground/sources/mynft.move)
 
+- 使用typescript 调用钱包发布合约
+
+```typescript
+const { modules, dependencies } = JSON.parse(moduleBytes);      
+const tx = new TransactionBlock();
+// 这一行注意，不能使用 数组方式解开，
+const updateCap = tx.publish({modules, dependencies})
+tx.transferObjects([updateCap[0]], tx.pure(address));
+const result = await signAndExecuteTransactionBlock({
+    transactionBlock: tx,    
+});
+console.log(result);
+```
+
+其中 moduleBytes 由命令 : sui move build --dump-bytecode-as-base64 --path . 生成。
+测试使用地址: [https://scaffold-sui.vercel.app/publish](https://scaffold-sui.vercel.app/publish)
+
+
 - 基本数据类型
 
-1. vector 操作相关  vector::emtpy, vector::index_of, vector::push_back, vector::pop_back  [vector_test.move](./dataplayer/sources/vector_test.move) 
+1. vector 操作相关  vector::emtpy, vector::index_of, vector::push_back, vector::pop_back  [vector_test.move](./
+dataplayer/sources/vector_test.move) 
 
 ## 学习成果
 
