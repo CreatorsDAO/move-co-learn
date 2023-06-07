@@ -1,0 +1,10 @@
+[package]
+name = "dataplayer"
+version = "0.0.1"
+
+[dependencies]
+Sui = {local="../../../../sui/crates/sui-framework/packages/sui-framework"}
+
+[addresses]
+dataplayer = "0x0"
+sui =  "0x2"

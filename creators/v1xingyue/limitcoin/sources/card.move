@@ -1,20 +1,26 @@
-module hello_world::hello_world {
-    use std::string;
+module limitcoin::card {
     use sui::object::{Self, UID};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
 
     /// An object that contains an arbitrary string
-    struct HelloWorldObject has key, store {
+    struct Card has key, store {
         id: UID,
-        /// A string contained in the object
-        text: string::String
+        mint_count: u64
+    }
+
+    public fun add_count(card:&mut Card) {
+        card.mint_count = card.mint_count + 1
+    }
+
+    public fun card_count(card:&Card) : u64 {
+        card.mint_count
     }
 
     public entry fun mint(ctx: &mut TxContext) {
-        let object = HelloWorldObject {
+        let object = Card {
             id: object::new(ctx),
-            text: string::utf8(b"Hello World!")
+            mint_count: 0
         };
         transfer::public_transfer(object, tx_context::sender(ctx));
     }
