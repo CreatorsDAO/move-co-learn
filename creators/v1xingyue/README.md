@@ -170,9 +170,18 @@ console.log(result);
 1. vector 操作相关  vector::emtpy, vector::index_of, vector::push_back, vector::pop_back  [vector_test.move](./
 dataplayer/sources/vector_test.move) 
 
+- 一个 coin pool 的基本结构
+
+[coin_pool](./playground/sources/coin_pool.move)
+
+* CoinPool 是一个基本对象，钱包可以初始化一个 Pool对象，用来装 Coin 和 对其他地址发放Coin 
+* add_coin 是往池内添加Coin
+* withdraw_to_address 往指定地址转账
+
+通过以上基本操作，可以完成向指定地址发放token的功能。可作为 红包应用的基础结构。
+
 ## 学习成果
 
 - [sui开发脚手架](https://github.com/v1xingyue/scaffold-sui)
 - [sui todo](https://github.com/v1xingyue/sui-todo)
 
-## Idea想法
