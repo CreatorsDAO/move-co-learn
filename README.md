@@ -1,8 +1,8 @@
 # Move-Co-Learn
 
-## Intro
+## Intro of move co learn
 
-![图片](https://tva1.sinaimg.cn/large/008vOhrAly1hg8c9rshpbj30u00gtdiv.jpg)
+![intro](./courses/images/intro.png)
 
  🚀
 
@@ -20,15 +20,10 @@
 ## 课程计划
 
 - [unit-1](./courses/unit-1)
-
   - [1.1 Sui Move 入门](./courses/unit-1/1-get-start/README.md)
   - [1.2 Sui Move 语法](./courses/unit-1/2-syntax-of-sui-move/README.md)
   - [1.3 合约测试](./courses/unit-1/3-move-test/README.md)
-
 - [unit-2](./courses/unit-2)
-
 - [unit-3](./courses/unit-3)
-
 - [unit-4](./courses/unit-4)
 
-  
